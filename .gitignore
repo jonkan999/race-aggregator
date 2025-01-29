@@ -12,3 +12,4 @@ build/*/json/training_plans_processed_*.json
 # SEO cache files
 data/countries/*/seo_content_cache.json
 build/
+build/*/json/training_plans_processed_*.json
