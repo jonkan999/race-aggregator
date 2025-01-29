@@ -6,4 +6,9 @@ credentials/*
 build_log/*
 data/countries/*/final_images.json
 
-firebase-debug.log
+firebase-debug.log# Build JSON files
+build/*/json/training_plans_processed_*.json
+
+# SEO cache files
+data/countries/*/seo_content_cache.json
+build/
