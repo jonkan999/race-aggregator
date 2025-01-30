@@ -57,27 +57,33 @@
         class="browse-link"
       >
         <div class="browse-link-icon">
-          <ion-icon name="git-network-outline"></ion-icon>
+          <svg class="icon">
+            <use xlink:href="/icons/svg-sprite.svg#git-network-outline"></use>
+          </svg>
         </div>
         <div class="browse-link-text">{{ browse_by_category.button }}</div>
       </a>
     </div>
     <div class="toggle-button desktop" id="toggleMapButton">
       <button>
-        <ion-icon
-          name="radio-button-on-outline"
+        <svg
+          class="icon"
           id="onIcon"
           role="img"
-          class="md hydrated"
           aria-label="radio button on outline"
-        ></ion-icon>
-        <ion-icon
-          name="radio-button-off-outline"
+        >
+          <use xlink:href="/icons/svg-sprite.svg#radio-button-on-outline"></use>
+        </svg>
+        <svg
+          class="icon"
           id="offIcon"
           role="img"
-          class="md hydrated"
           aria-label="radio button off outline"
-        ></ion-icon>
+        >
+          <use
+            xlink:href="/icons/svg-sprite.svg#radio-button-off-outline"
+          ></use>
+        </svg>
         {{ map_toggle_mobile }}
       </button>
     </div>

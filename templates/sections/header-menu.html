@@ -9,12 +9,10 @@
     >
     <div class="login-container" id="login-container">
       <div class="login-wrapper">
-        <ion-icon
-          class="login-icon"
-          name="person-circle-outline"
-          title="Login"
-          id="login-icon"
-        ></ion-icon>
+        <svg class="icon login-icon" title="Login" id="login-icon">
+          <use xlink:href="/icons/svg-sprite.svg#person-circle-outline"></use>
+        </svg>
+        
         <span id="loginText" class="user-display-name login-text">
           {{ auth_modal.title_sign_in }}
         </span>

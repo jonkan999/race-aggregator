@@ -7,8 +7,11 @@
         <li {% if loop.last %}aria-current="page" {% endif %}>
           {% if not loop.last %}
           <a href="{{ crumb.href }}">{{ crumb.name }}</a>
-          <span class="separator"
-            ><ion-icon name="chevron-forward-outline"></ion-icon
+          <span class="separator">
+            <svg class="icon">
+              <use
+                xlink:href="/icons/svg-sprite.svg#chevron-forward-outline"
+              ></use></svg
           ></span>
           {% else %}
           <span>{{ crumb.name }}</span>
@@ -76,10 +79,18 @@
           <h2 class="section-header">{{ selected_races_title }}</h2>
           <div class="scroll-buttons">
             <button class="scroll-button prev" aria-label="Previous" disabled>
-              <ion-icon name="chevron-back-outline"></ion-icon>
+              <svg class="icon">
+                <use
+                  xlink:href="/icons/svg-sprite.svg#chevron-back-outline"
+                ></use>
+              </svg>
             </button>
             <button class="scroll-button next" aria-label="Next">
-              <ion-icon name="chevron-forward-outline"></ion-icon>
+              <svg class="icon">
+                <use
+                  xlink:href="/icons/svg-sprite.svg#chevron-forward-outline"
+                ></use>
+              </svg>
             </button>
           </div>
         </div>
@@ -118,12 +129,9 @@
 </section>
 <button class="toggle-button mobile" id="toggleMapButtonMobile">
   <div class="icon-container">
-    <ion-icon
-      name="map-outline"
-      role="img"
-      class="md hydrated"
-      aria-label="map outline"
-    ></ion-icon>
+    <svg class="icon" role="img" aria-label="map outline">
+      <use xlink:href="/icons/svg-sprite.svg#map-outline"></use>
+    </svg>
   </div>
   <p>{{ map_toggle_mobile }}</p>
 </button>

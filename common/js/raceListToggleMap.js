@@ -22,9 +22,9 @@ toggleButtonMobile.addEventListener('click', async function () {
     headerRaceCards.style.display = 'none';
     pagination.style.display = 'none';
     toggleButtonMobile.innerHTML = `
-      <div class="icon-container">
-        <ion-icon name="list-outline"></ion-icon>
-      </div>
+      <svg class="icon" role="img" aria-label="list outline">
+        <use xlink:href="/icons/svg-sprite.svg#list-outline"></use>
+      </svg>
       <p>{{map_toggle_mobile_list}}</p>
     `;
     toggleButtonMobile.style.bottom = '2.5rem';
@@ -60,7 +60,9 @@ toggleButtonMobile.addEventListener('click', async function () {
     headerRaceCards.style.display = 'block';
     toggleButtonMobile.innerHTML = `
       <div class="icon-container">
-        <ion-icon name="map-outline"></ion-icon>
+        <svg class="icon" role="img" aria-label="map outline">
+          <use xlink:href="/icons/svg-sprite.svg#map-outline"></use>
+        </svg>
       </div>
       <p>{{map_toggle_mobile}}</p>
     `;

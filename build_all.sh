@@ -96,7 +96,12 @@ run_script_flag "build_forum_pages"
 # Generate HTML again since seo overwrites race pages
 run_script_direct "generate_html"
 
+# Generate bundles
+./bundles.sh
+
 # Generate sitemap index (all countries)
 run_script_direct "generate_sitemap"
+
+
 
 log_message "${GREEN}Build process completed successfully for country: ${COUNTRY_CODE}!${NC}"

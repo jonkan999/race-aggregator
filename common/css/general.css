@@ -195,11 +195,12 @@ h2.section-header {
   border-top: 2px solid var(--color-section-separator);
 }
 .icon {
-  width: 1.5rem;
+  width: 2rem;
   /* Adjust this to your desired size */
-  height: 1.5rem;
+  height: 2rem;
+  fill: currentColor;
   display: inline-block;
-  vertical-align: middle;
+  font-size: 2rem;
 }
 .primary-color {
   color: var(--color-primary) !important;

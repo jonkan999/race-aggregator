@@ -4,8 +4,8 @@ distance_mapping:
   100 miles:
   - 100 miles
   100km:
-  - 100 km
   - 50 miles
+  - 100 km
   105km:
   - 100 km
   10km:
@@ -43,6 +43,8 @@ distance_mapping:
   - 50 km
   4km:
   - 5 km
+  5,3km:
+  - 5 km
   5,5km:
   - 5 km
   5,6km:
@@ -68,8 +70,8 @@ distance_mapping:
   - 10 km
   - Millopp
   90km:
-  - 100 km
   - 50 miles
+  - 100 km
   9km:
   - 10 km
   - Millopp

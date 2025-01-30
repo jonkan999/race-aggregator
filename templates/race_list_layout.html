@@ -19,14 +19,10 @@
       content="{{ race_list_meta_description_1 }} {{ '' | get_years }} {{ race_list_meta_description_2 }}"
     />
 
-    <!-- Load preloader first -->
+    <!-- Critical preloads -->
+    <link rel="preload" href="/css/bundle.css" as="style" />
     <script src="/js/imagePreloader.js" fetchpriority="high"></script>
-
-    <!-- Preload critical assets -->
-    <link rel="preload" href="/css/general.css" as="style" />
-    <link rel="preload" href="/css/header-menu.css" as="style" />
-    <link rel="preload" href="/css/loader.css" as="style" />
-    <link rel="prefetch" href="/js/commonFunctions.js" as="script" />
+    <script src="/js/cssLoader.js"></script>
 
     <!-- Preconnect to critical domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
@@ -36,36 +32,35 @@
     <!-- Favicon -->
     <link rel="icon" href="/common_images/logo.svg" type="image/svg+xml" />
 
-    <!-- CSS Loading Tracker Script -->
-    <script src="/js/cssLoader.js"></script>
+    <!-- Main CSS bundle -->
+    <link rel="stylesheet" href="/css/bundle.css" />
 
-    <link rel="stylesheet" href="/css/general.css" />
-    <link rel="stylesheet" href="/css/header-menu.css" />
-    <link rel="stylesheet" href="/css/loader.css" />
-    <link rel="stylesheet" href="/css/ads.css" />
-    <link rel="stylesheet" href="/css/race-list-filter.css" />
-    <link rel="stylesheet" href="/css/race-list-dynamic-titles.css" />
-    <link rel="stylesheet" href="/css/selected-races.css" />
-    <link rel="stylesheet" href="/css/race-card-big.css" />
-    <link rel="stylesheet" href="/css/race-cards.css" />
-    <link rel="stylesheet" href="/css/race-card.css" />
-
-    <!-- Fonts -->
+    <!-- Fonts - load async -->
     <link
       href="https://fonts.googleapis.com/css2?family=New+Amsterdam&display=swap"
       rel="stylesheet"
       media="print"
       onload="this.media='all'"
     />
-    <!-- Icons (load early to avoid CLS, appernetly gets LCS anyway. consider moving this to the loader and only release it once loaded) -->
+
+    <!-- Critical Scripts -->
+    <script type="module" src="/js/commonFunctions.js"></script>
+    <script src="/js/raceList.js"></script>
+
+    <!-- Deferred race-related scripts bundle -->
+    <script defer src="/js/race-bundle.js"></script>
+
+    <!-- Mapbox - load async -->
     <script
-      type="module"
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+      defer
+      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
     ></script>
-    <script
-      nomodule
-      src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>
+    <link
+      href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
 
     <!-- Ad-related preconnects -->
     <link
@@ -85,29 +80,7 @@
     />
     <link rel="preconnect" href="https://adservice.google.com" crossorigin />
 
-    <!-- Mapbox (load only when needed) -->
-    <script
-      defer
-      src="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.js"
-    ></script>
-    <link
-      href="https://api.mapbox.com/mapbox-gl-js/v3.8.0/mapbox-gl.css"
-      rel="stylesheet"
-      media="print"
-      onload="this.media='all'"
-    />
-
-    <!-- Critical Scripts -->
-    <script type="module" src="/js/commonFunctions.js"></script>
-
-    <!-- Move other race-related scripts up but keep them deferred -->
-    <script src="/js/raceList.js"></script>
-    <script defer src="/js/raceListMap.js"></script>
-    <script defer src="/js/raceListDisengeageFilters.js"></script>
-    <script defer src="/js/raceListToggleButton.js"></script>
-    <script defer src="/js/raceListToggleMap.js"></script>
-
-    <!-- Ads Script -->
+    <!-- Ads Script - load last -->
     <script
       async
       src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7076760775175370"
@@ -116,7 +89,6 @@
   </head>
   <body>
     {% include 'components/initial_loader.html' %}
-
     <div id="page-wrapper">
       <main>{% block content %}{% endblock %}</main>
       {% include 'components/footer.html' %}

@@ -13,7 +13,7 @@
   data-longitude="{{ race.longitude|default('') }}"
   data-location="{{ race.location }}"
   data-description="{{ race.description[:140] }}"
-  data-src="{{ get_image_path(country_code, race.domain_name) }}"
+  data-src="{{ get_image_path(country_code, race.domain_name, race.supplied_at) }}"
   data-type="{{ race.type }}"
   data-type-display="{{ type_options[race.type]|default(race.type) }}"
   data-date-display="{{ race.date | convert_date(month_mapping_short) }}"
@@ -22,7 +22,7 @@
     <picture>
       <img
         src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"
-        data-src="{{ get_image_path(country_code, race.domain_name) }}"
+        data-src="{{ get_image_path(country_code, race.domain_name, race.supplied_at) }}"
         width="600"
         height="400"
         alt="{{ alt_prefix }}{{ race.name }}"
@@ -125,7 +125,7 @@
   data-longitude="{{ race.longitude|default('') }}"
   data-location="{{ race.location }}"
   data-description="{{ race.description[:140] }}"
-  data-src="{{ get_image_path(country_code, race.domain_name) }}"
+  data-src="{{ get_image_path(country_code, race.domain_name, race.supplied_at) }}"
   data-type="{{ race.type }}"
   data-type-display="{{ type_options[race.type]|default(race.type) }}"
   data-date-display="{{ race.date | convert_date(month_mapping_short) }}"

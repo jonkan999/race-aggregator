@@ -2,6 +2,7 @@ from jinja2 import Environment, FileSystemLoader, Template
 from datetime import datetime, timedelta
 import re
 import unicodedata
+import requests
 
 def timeago(value):
     """
@@ -205,9 +206,14 @@ def get_selected_races(races):
     
     return selected_races
 
-def get_image_path(country_code, domain_name, image_num=1):
+def get_image_path(country_code, domain_name, supplied_image=False, image_num=1):
     """Generate the correct image path with cache busting."""
-    base_url = f"https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/{country_code}/{domain_name}/{domain_name}_{image_num}.webp"
-    return f"{base_url}?v=1"  # Add version parameter for cache control
+    # First try the supplied images path
+    if supplied_image:
+        base_url = f"https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/{country_code}/{domain_name}_supplied/{domain_name}_{image_num}.webp"
+    else:
+        base_url = f"https://storage.googleapis.com/aggregatory-440306.firebasestorage.app/race-images/{country_code}/{domain_name}/{domain_name}_{image_num}.webp"
+    
+    return f"{base_url}?v=1"
 
 
